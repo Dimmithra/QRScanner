@@ -7,9 +7,9 @@ import 'package:safe_device/safe_device.dart';
 
 class AuthProvider extends ChangeNotifier {
   pageNavigator(context) async {
-    Future.delayed(Duration(seconds: 4)).then(
+    Future.delayed(Duration(seconds: 5)).then(
       (value) {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute<void>(
             builder: (BuildContext context) => const MainDashBoard(),

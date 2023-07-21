@@ -141,17 +141,22 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            "assets/images/qr_scanner_image.GIF",
-            fit: BoxFit.cover,
-          )
-        ],
-      ),
-    ));
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: SafeArea(
+          child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              "assets/images/qr_scanner_image.GIF",
+              fit: BoxFit.cover,
+            )
+          ],
+        ),
+      )),
+    );
   }
 }
