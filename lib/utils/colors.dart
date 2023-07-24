@@ -5,3 +5,4 @@ const Color kWarningCollor = Colors.amberAccent;
 const Color kPrimaryBlue = Colors.blue;
 const Color kButtonColor = Colors.transparent;
 const Color kGreenColor = Colors.green;
+const Color kScafolderColor = Colors.white;

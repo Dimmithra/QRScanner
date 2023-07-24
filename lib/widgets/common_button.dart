@@ -5,10 +5,11 @@ import 'package:qrscaner/utils/colors.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton(
-      {super.key, required this.onPress, required this.btnCaption});
+      {super.key, required this.onPress, required this.btnCaption, this.color});
 
   final Function() onPress;
   final String btnCaption;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -17,7 +18,7 @@ class CommonButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(10.0),
         ),
-        backgroundColor: kButtonColor,
+        backgroundColor: color,
       ),
       onPressed: onPress,
       child: Text(

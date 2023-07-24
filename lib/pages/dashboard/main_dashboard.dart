@@ -1,8 +1,14 @@
+import 'dart:developer';
+
 import 'package:botton_nav_bar/botton_nav_bar.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/widgets.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qrscaner/pages/dashboard/my%20login/login.dart';
+import 'package:qrscaner/provider/qr_scaner_provider.dart';
 import 'package:qrscaner/utils/colors.dart';
 import 'package:qrscaner/utils/main_body.dart';
 import 'package:qrscaner/widgets/common_bottomnavbar.dart';
@@ -18,6 +24,9 @@ class MainDashBoard extends StatefulWidget {
 class _MainDashBoardState extends State<MainDashBoard> {
   @override
   Widget build(BuildContext context) {
+    Barcode? result;
+    QRViewController? controller;
+    final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
     return MainBody(
       drawer: Drawer(
         backgroundColor: kPrimaryBlue,
@@ -43,7 +52,13 @@ class _MainDashBoardState extends State<MainDashBoard> {
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: CommonButton(
-                    onPress: () {},
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ));
+                    },
                     btnCaption: 'My Login',
                   ),
                 ),
@@ -75,7 +90,11 @@ class _MainDashBoardState extends State<MainDashBoard> {
             color: Colors.white,
           ),
         ),
-        onPressed: () {},
+        onPressed: () async {
+          //  setState(() {
+          //    ()=> QrScannerProvider.isRearCameraSelected
+          //  });
+        },
       ),
     );
   }
