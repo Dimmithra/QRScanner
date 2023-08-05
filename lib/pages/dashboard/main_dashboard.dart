@@ -9,6 +9,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qrscaner/pages/dashboard/QR_Generator/qr_generator.dart';
 import 'package:qrscaner/pages/dashboard/my%20login/login.dart';
 import 'package:qrscaner/pages/dashboard/qrcode_scanner/qrcode_scanner.dart';
 import 'package:qrscaner/provider/qr_scaner_provider.dart';
@@ -99,7 +100,17 @@ class _MainDashBoardState extends State<MainDashBoard> {
             ),
           ),
           appbarTitleName: 'Main DashBoard',
-          content: SingleChildScrollView(),
+          content: SingleChildScrollView(
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QRGeneratotScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('QR Generatore'))),
           floatingActionButton: FloatingActionButton.large(
             child: CircleAvatar(
               maxRadius: 75,

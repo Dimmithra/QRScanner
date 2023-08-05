@@ -69,6 +69,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
             IconButton(
               onPressed: () async {
                 await controller?.toggleFlash();
+                setState(() {});
               },
               icon: FutureBuilder(
                 future: controller?.getFlashStatus(),
@@ -87,13 +88,28 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
               ),
             ),
             IconButton(
-                onPressed: () async {
-                  await controller?.flipCamera();
+              onPressed: () async {
+                await controller?.flipCamera();
+                setState(() {});
+              },
+              icon: FutureBuilder(
+                future: controller?.getCameraInfo(),
+                builder: (context, snapshot) {
+                  if (snapshot.data != null) {
+                    return Icon(
+                      Icons.camera_enhance,
+                      color: Colors.white,
+                    );
+                  } else {
+                    return Container();
+                  }
                 },
-                icon: Icon(
-                  Icons.switch_camera,
-                  color: Colors.white,
-                ))
+              ),
+              // icon: Icon(
+              //   Icons.switch_camera,
+              //   color: Colors.white,
+              // ),
+            )
           ],
         ),
       );

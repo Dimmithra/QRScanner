@@ -14,6 +14,7 @@ class CommonInput extends StatelessWidget {
     this.backgroundcolor,
     this.suffix,
     this.isValidate = false,
+    this.onchanged,
   });
   final String hintText;
   final String lableText;
@@ -23,10 +24,12 @@ class CommonInput extends StatelessWidget {
   final Color? backgroundcolor;
   final Widget? suffix;
   final bool isValidate;
+  final Function(String)? onchanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controllerl,
+      onChanged: onchanged,
       validator: (text) {
         if (isValidate) {
           if (text == null || text.isEmpty) {
