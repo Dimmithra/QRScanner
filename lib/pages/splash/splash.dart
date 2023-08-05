@@ -110,9 +110,9 @@ class _SplashScreenState extends State<SplashScreen> {
       isJailBroken = true;
       isRealDevice = false;
       isSafeDevice = true;
-      isDevelopmentModeEnable = true;
+      isDevelopmentModeEnable = false;
     }
-    if ((isJailBroken ||
+    if (!(isJailBroken ||
         isRealDevice ||
         isSafeDevice ||
         isDevelopmentModeEnable)) {
