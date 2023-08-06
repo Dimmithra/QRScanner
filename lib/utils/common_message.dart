@@ -26,14 +26,14 @@ Alert errorMessage(
               btnType == 1
                   ? Ionicons.alert_circle
                   : btnType == 2
-                      ? Ionicons.warning
+                      ? Ionicons.warning_sharp
                       : Ionicons.information_circle,
               color: btnType == 1
                   ? kErrorCollor
                   : btnType == 2
                       ? kWarningCollor
-                      : kPrimaryBlue,
-              size: 50,
+                      : kSuccessColor,
+              size: 45,
             ),
           if (showIcon)
             Text(
@@ -43,19 +43,21 @@ Alert errorMessage(
                       ? "Warning"
                       : "Information",
               style: TextStyle(
-                color: btnType == 1
-                    ? kErrorCollor
-                    : btnType == 2
-                        ? kWarningCollor
-                        : kPrimaryBlue,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: btnType == 1
+                      ? kErrorCollor
+                      : btnType == 2
+                          ? kWarningCollor
+                          : kSuccessColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25),
             ),
-          // if (showIcon) ,
+          SizedBox(
+            height: 25,
+          ),
           Text(
             errorTxt,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               height: 1.5,
               fontWeight: FontWeight.bold,
             ),

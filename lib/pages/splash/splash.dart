@@ -91,10 +91,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> initPlatformState() async {
-    bool isJailBroken = false;
-    bool isRealDevice = true;
-    bool isSafeDevice = false;
-    bool isDevelopmentModeEnable = false;
+    bool isJailBroken = true;
+    bool isDevelopmentModeEnable = true;
     // await Permission.location.request();
     // if (await Permission.location.isPermanentlyDenied) {
     //   openAppSettings();
@@ -103,19 +101,13 @@ class _SplashScreenState extends State<SplashScreen> {
     if (!mounted) return;
     try {
       isJailBroken = await SafeDevice.isJailBroken;
-      isRealDevice = await SafeDevice.isRealDevice;
-      isSafeDevice = await SafeDevice.isSafeDevice;
+
       isDevelopmentModeEnable = await SafeDevice.isDevelopmentModeEnable;
     } on PlatformException {
-      isJailBroken = true;
-      isRealDevice = false;
-      isSafeDevice = true;
+      isJailBroken = false;
       isDevelopmentModeEnable = false;
     }
-    if ((isJailBroken ||
-        isRealDevice ||
-        isSafeDevice ||
-        isDevelopmentModeEnable)) {
+    if (!(isJailBroken || isDevelopmentModeEnable)) {
       errorMessage(
         context,
         errorTxt: 'Your Device has security issue',

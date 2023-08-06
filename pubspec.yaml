@@ -25,6 +25,10 @@ dependencies:
   camera: ^0.10.5+2
   qr_code_scanner: ^1.0.1
   qr_flutter: ^4.0.0
+  gallery_saver: ^2.3.2
+  share: ^2.0.4
+  flutter_barcode_scanner: ^2.0.0
+  dio: ^5.3.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
